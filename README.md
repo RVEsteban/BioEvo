@@ -1,10 +1,10 @@
 # BioEvo Core
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 [![GitHub Pages](https://img.shields.io/badge/Landing_Page-Live-38bdf8)](https://rvesteban.github.io/BioEvo/)
 [![Zero Telemetry](https://img.shields.io/badge/Telemetry-Zero_Cloud-3fb950.svg)](#principios-fundacionales)
 
-**BioEvo Core** es un ecosistema de herramientas de software de computación local orientadas a investigación biológica, bioestadística y síntesis de literatura científica. Todas las aplicaciones están concebidas bajo el paradigma **local-first**: ejecución directa en la máquina del usuario, código auditable y cero telemetría externa.
+**BioEvo Core** es un ecosistema de herramientas de software de computación local orientadas a investigación biológica, bioestadística y síntesis de literatura científica. Todas las aplicaciones están concebidas bajo el paradigma **local-first**: ejecución directa en la máquina del usuario, procesamiento seguro y cero telemetría externa.
 
 ---
 
@@ -54,6 +54,7 @@ BioEvo Core es y seguirá siendo libre, local y completamente funcional. Si este
 
 ---
 
-## 📄 Licencia y Descargo
+## 📄 Licencia y Derechos de Autor
+Copyright (c) 2026 Esteban Rosero / BioEvo Core. Todos los derechos reservados.
 
-Este repositorio se distribuye bajo la licencia **MIT**. Para conocer detalles de garantías y limitaciones de responsabilidad frente al uso de modelos de lenguaje en publicaciones científicas, consulta la sección legal en el sitio web del proyecto.
+Este software, su código fuente, ejecutables y documentación asociada se distribuyen bajo una Licencia Propietaria Comercial. Queda terminantemente prohibida su copia, distribución, modificación, descompilación, comercialización o sublicenciamiento sin el consentimiento previo y por escrito del autor. Para detalles sobre términos de uso y exención de responsabilidades, consulta el archivo LICENSE.
