@@ -1,43 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BioEvo Core | Software Científico Local</title>
-<meta name="description" content="Software científico abierto, 100% local y sin telemetría: Cronos Desktop (literatura científica con LLMs locales) y  Formatter (tablas biostatísticas a LaTeX).">
-<meta name="theme-color" content="#0d1117">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1117'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%2338bdf8' stroke-opacity='.35' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2338bdf8'/%3E%3C/svg%3E">
-<!-- Cambia TU-USUARIO por tu usuario de GitHub. og:image debe ser una URL absoluta (1200x630 px recomendado). -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="BioEvo Core">
-<meta property="og:locale" content="es_LA">
-<meta property="og:title" content="BioEvo Core | Software científico local y abierto">
-<meta property="og:description" content="Software científico abierto, 100% local y sin telemetría: Cronos Desktop (literatura científica con LLMs locales) y  Formatter (tablas biostatísticas a LaTeX).">
-<meta property="og:url" content="https://TU-USUARIO.github.io/bioevo-core/">
-<meta property="og:image" content="https://TU-USUARIO.github.io/bioevo-core/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BioEvo Core | Software científico local y abierto">
-<meta name="twitter:description" content="Software científico abierto, 100% local y sin telemetría: Cronos Desktop (literatura científica con LLMs locales) y LabStats Formatter (tablas biostatísticas a LaTeX).">
-<meta name="twitter:image" content="https://TU-USUARIO.github.io/bioevo-core/og-image.png">
-<style>
-:root {
-  --bg: #0d1117; --surface: #161b22; --border: #30363d;
-  --text-main: #e6edf3; --text-dim: #8b949e;
-  --accent: #38bdf8; --accent-hover: #7dd3fc; --on-accent: #0d1117;
-  --ok: #3fb950; --glow: rgba(56,189,248,.16); --grid-line: rgba(230,237,243,.05);
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --ease: cubic-bezier(.22,.8,.3,1);
-  color-scheme: dark;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-body { background: var(--bg); color: var(--text-main); font-family: var(--font-family); line-height: 1.6; overflow-x: hidden; }
-body.locked { overflow: hidden; }
-::selection { background: var(--accent); color: var(--on-accent); }
-a:focus-visible, button:focus-visible, [role="tab"]:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
-
 /* Header */
 header { position: sticky; top: 0; z-index: 20; background: rgba(13,17,23,.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); transition: box-shadow .3s var(--ease); }
 header.scrolled { box-shadow: 0 6px 24px -12px rgba(0,0,0,.6); }
@@ -154,275 +114,37 @@ footer a:hover { background-size: 100% 1px; }
 
 @media (max-width: 560px) { .nav a.link { display: none; } .btn-sm { margin-left: 0; } .support .btn { width: 100%; text-align: center; } }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
-  .terminal .ln, .js .reveal { opacity: 1; transform: none; }
+*, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; scroll-behavior: auto !important; }
+.terminal .ln, .js .reveal { opacity: 1; transform: none; }
 }
-</style>
-</head>
-<body>
 
-<header id="top">
-  <div class="nav container">
-    <span class="brand"><span class="dot"></span>BioEvo Core</span>
-    <nav>
-      <a class="link" href="#herramientas">Herramientas</a>
-      <a class="link" href="#confianza">Principios</a>
-      <a class="link" href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a class="link" href="mailto:rv.esteban07@gmail.com?subject=BioEvo%20Core">Contacto</a>
-      <button type="button" class="btn btn-outline btn-sm" data-open="supportModal" aria-haspopup="dialog">☕ Apoyar</button>
-    </nav>
-  </div>
-</header>
 
-<main class="container">
-  <section class="hero">
-    <div class="badge reveal">100% Local • Zero Cloud Tracking • Open Source</div>
-    <h1 class="reveal" style="--i:1">Software científico abierto, <span>sin telemetría</span> y directo en tu máquina</h1>
-    <p class="reveal" style="--i:2">Potencia tu investigación con herramientas que respetan tu privacidad. Cómputo local garantizado sin costos recurrentes ni suscripciones.</p>
-    <div class="terminal reveal" style="--i:3" aria-hidden="true">
-      <div class="bar"><i></i><i></i><i></i><span style="margin-left:.4rem">bioevo — local</span></div>
-      <div class="body">
-        <div class="ln"><b>$</b> cronos --modelo ollama/local</div>
-        <div class="ln">› 42 artículos indexados en tu equipo</div>
-        <div class="ln">› red externa: 0 conexiones · telemetría: off</div>
-        <div class="ln"><b>✓</b> síntesis lista <span class="caret"></span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="confianza">
-    <h2 class="reveal">Diseñado para que puedas confiar en él</h2>
-    <p class="sect-lead reveal" style="--i:1">Antes de descargar un ejecutable, conviene saber qué hace y qué no hace. Estos son los principios del proyecto.</p>
-    <div class="grid three">
-      <article class="card reveal" style="--i:1">
-        <span class="num">01</span>
-        <h3>Ejecución local nativa</h3>
-        <p>Zero-Cloud: ningún binario se conecta a servidores externos. Tus documentos y resultados nunca salen de tu equipo.</p>
-      </article>
-      <article class="card reveal" style="--i:2">
-        <span class="num">02</span>
-        <h3>Modelos abiertos</h3>
-        <p>Basado en Ollama y Python, sin depender de APIs de pago ni de cuentas de terceros.</p>
-      </article>
-      <article class="card reveal" style="--i:3">
-        <span class="num">03</span>
-        <h3>Licencia MIT</h3>
-        <p>Código auditable y reutilizable, incluso con fines comerciales. Puedes revisar exactamente lo que ejecutas.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="herramientas">
-    <h2 class="reveal">Módulos Disponibles</h2>
-    <div class="grid">
-      <article class="card reveal" style="--i:1">
-        <h3>Cronos Desktop</h3>
-        <p>Extractor y sintetizador de literatura científica potenciado por LLMs locales (Ollama).</p>
-        <div><span class="tech-badge">Python</span><span class="tech-badge">Local LLM</span></div>
-        <a href="https://github.com/RVEsteban/BioEvo/tree/main/cronos" class="btn" target="_blank" rel="noopener noreferrer">Ver Módulo</a>
-        <a href="https://github.com/RVEsteban/BioEvo/tree/main/cronos" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Documentación</a>
-      </article>
-      <article class="card reveal" style="--i:2">
-        <h3>LabStats Formatter</h3>
-        <p>Automatizador de tablas biostatísticas y exportación nativa a sintaxis LaTeX.</p>
-        <div><span class="tech-badge">LaTeX</span><span class="tech-badge">Python</span></div>
-        <a href="https://github.com/RVEsteban/BioEvo/tree/main/LabStats" class="btn" target="_blank" rel="noopener noreferrer">Ver Módulo</a>
-        <a href="https://github.com/RVEsteban/BioEvo/tree/main/LabStats" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Documentación</a>
-      </article>
-    </div>
-  </section>
-
-  <aside class="support reveal" id="apoyo" aria-labelledby="supportTitle">
-    <div>
-      <h2 id="supportTitle">☕ Apoyo al creador, completamente opcional</h2>
-      <p>BioEvo Core es y seguirá siendo libre, local y 100% funcional, sin límites ni funciones bloqueadas. Si estas herramientas te ahorran tiempo y quieres aportar al desarrollo continuo (y al café que lo hace posible), puedes hacerlo voluntariamente. Si no, ¡usa el software con total tranquilidad!</p>
-    </div>
-    <button type="button" class="btn btn-outline" data-open="supportModal" aria-haspopup="dialog">Ver formas de apoyar</button>
-  </aside>
-
-  <section class="contact reveal" id="contacto">
-    <h2>Soporte y contacto directo</h2>
-    <p>¿Encontraste un bug, quieres proponer una colaboración o necesitas soporte para tu laboratorio o institución? Escríbeme directamente o abre un issue en GitHub.</p>
-    <a class="btn btn-outline" href="mailto:rv.esteban07@gmail.com?subject=BioEvo%20Core">✉ rv.esteban07@gmail.com</a>
-    <a class="btn btn-outline" href="https://github.com/RVEsteban/BioEvo/issues" target="_blank" rel="noopener noreferrer">Reportar un issue ↗</a>
-  </section>
-</main>
-
-<footer class="container reveal">
-  <p>© 2026 BioEvo Core. Licencia MIT.</p>
-  <a href="#" data-open="modal" role="button">Términos, privacidad y descargo de responsabilidad</a>
-  <span aria-hidden="true"> · </span>
-  <a href="mailto:rv.esteban07@gmail.com?subject=BioEvo%20Core">Contacto</a>
-</footer>
-
-<!-- Modal: términos -->
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
-  <div class="modal-content">
-    <h3 id="modalTitle">Términos y Privacidad</h3>
-    <div class="legal">
-      <h4>1. Licencia y garantía</h4>
-      <p>BioEvo Core se distribuye bajo licencia MIT, «tal cual» y sin garantías de ningún tipo. Los autores no responden por daños derivados de su uso.</p>
-      <h4>2. Privacidad</h4>
-      <p>El software se ejecuta localmente: no recolecta telemetría ni envía tus documentos o resultados a servidores externos. Este sitio no usa cookies de seguimiento.</p>
-      <h4>3. Descargo sobre IA y literatura científica</h4>
-      <p>Los modelos de lenguaje locales generan texto probabilístico y pueden producir errores, omisiones o afirmaciones inventadas («alucinaciones»), incluidas referencias o datos inexistentes. <strong>Los resúmenes y extracciones de Cronos Desktop deben ser validados por una persona experta, contra las fuentes originales, antes de citarse en publicaciones revisadas por pares, informes o decisiones clínicas.</strong></p>
-      <h4>4. Sin asesoría profesional</h4>
-      <p>Nada en el software ni en este sitio constituye consejo médico, clínico, estadístico o legal. Verifica siempre las tablas generadas por LabStats Formatter antes de publicarlas.</p>
-      <h4>5. Apoyo voluntario</h4>
-      <p>Los aportes son voluntarios y no compran garantías, soporte prioritario ni funciones adicionales.</p>
-    </div>
-    <p style="height:.75rem"></p>
-    <button type="button" class="btn" data-close>Cerrar</button>
-  </div>
+<div class="tabs" role="tablist" aria-label="Formas de apoyo">
+  <button type="button" role="tab" id="tab-nequi" aria-controls="panel-nequi" aria-selected="true">Nequi / Transfiya</button>
+  <button type="button" role="tab" id="tab-wompi" aria-controls="panel-wompi" aria-selected="false" tabindex="-1">Wompi</button>
+  <button type="button" role="tab" id="tab-cripto" aria-controls="panel-cripto" aria-selected="false" tabindex="-1">Cripto</button>
 </div>
 
-<!-- Modal: apoyo -->
-<div class="modal" id="supportModal" role="dialog" aria-modal="true" aria-labelledby="supportModalTitle" aria-hidden="true">
-  <div class="modal-content">
-    <button type="button" class="x" data-close aria-label="Cerrar">✕</button>
-    <h3 id="supportModalTitle">☕ Apoya BioEvo Core</h3>
-    <p class="lead">Gracias por considerarlo. Nada de esto es necesario para usar el software; es solo una forma de agradecer y mantener el desarrollo vivo.</p>
-
-    <div class="tabs" role="tablist" aria-label="Formas de apoyo">
-      <button type="button" role="tab" id="tab-nequi" aria-controls="panel-nequi" aria-selected="true">Nequi / Transfiya</button>
-      <button type="button" role="tab" id="tab-wompi" aria-controls="panel-wompi" aria-selected="false" tabindex="-1">Wompi</button>
-      <button type="button" role="tab" id="tab-cripto" aria-controls="panel-cripto" aria-selected="false" tabindex="-1">Cripto</button>
-    </div>
-
-    <div class="panel show" role="tabpanel" id="panel-nequi" aria-labelledby="tab-nequi">
-      <div class="field">
-        <code id="nequiValue" aria-label="Número o llave Nequi">—</code>
-        <button type="button" class="btn btn-outline" data-copy="nequiValue" data-label="Copiar número">Copiar número</button>
-      </div>
-      <div class="qr" id="nequiQr">Código QR</div>
-      <p class="note">Desde Nequi o cualquier app bancaria que soporte Transfiya, con el monto que quieras.</p>
-    </div>
-
-    <div class="panel" role="tabpanel" id="panel-wompi" aria-labelledby="tab-wompi" hidden>
-      <a id="wompiLink" class="btn" href="#" target="_blank" rel="noopener noreferrer" style="margin:0">Apoyar con tarjeta o PSE ↗</a>
-      <p class="note">Se abrirá en una pestaña nueva el checkout seguro de Wompi. Tus datos de pago nunca pasan por este sitio.</p>
-    </div>
-
-    <div class="panel" role="tabpanel" id="panel-cripto" aria-labelledby="tab-cripto" hidden>
-      <div class="field">
-        <code id="cryptoValue" aria-label="Dirección de la wallet">—</code>
-        <button type="button" class="btn btn-outline" data-copy="cryptoValue" data-label="Copiar dirección">Copiar dirección</button>
-      </div>
-      <p class="warn"><strong>USDT en red Polygon (PoS) únicamente.</strong> Enviar otro token u otra red puede hacer que los fondos se pierdan.</p>
-    </div>
-
-    <span class="sr" id="live" role="status" aria-live="polite"></span>
+<div class="panel show" role="tabpanel" id="panel-nequi" aria-labelledby="tab-nequi">
+  <div class="field">
+    <code id="nequiValue" aria-label="Número o llave Nequi">—</code>
+    <button type="button" class="btn btn-outline" data-copy="nequiValue" data-label="Copiar número">Copiar número</button>
   </div>
+  <div class="qr" id="nequiQr">Código QR</div>
+  <p class="note">Desde Nequi o cualquier app bancaria colombiana que soporte Transfiya.</p>
 </div>
 
-<script>
-document.documentElement.classList.add('js');
+<div class="panel" role="tabpanel" id="panel-wompi" aria-labelledby="tab-wompi" hidden>
+  <a id="wompiLink" class="btn" href="#" target="_blank" rel="noopener noreferrer" style="margin:0">Apoyar con tarjeta o PSE ↗</a>
+  <p class="note">Se abrirá el checkout oficial de Wompi en una pestaña segura. Tus datos financieros no tocan este sitio.</p>
+</div>
 
-/* ===== CONFIGURA AQUÍ TUS DATOS DE APOYO ===== */
-const SUPPORT = {
-  nequi:  { value: '',  qr: '' },   // ej.: '300 000 0000'  |  qr: 'img/qr-nequi.png'
-  wompi:  { url: 'https://checkout.wompi.co/l/VPOS_jRg1zj' },              // ej.: 'https://checkout.wompi.co/l/XXXXXX'
-  crypto: { address: '' }           // dirección pública 0x… (USDT · Polygon)
-};
-/* ============================================= */
+<div class="panel" role="tabpanel" id="panel-cripto" aria-labelledby="tab-cripto" hidden>
+  <div class="field">
+    <code id="cryptoValue" aria-label="Dirección de la wallet">—</code>
+    <button type="button" class="btn btn-outline" data-copy="cryptoValue" data-label="Copiar dirección">Copiar dirección</button>
+  </div>
+  <p class="warn"><strong>USDT en red Polygon (PoS) únicamente.</strong></p>
+</div>
 
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-
-// Header con sombra al hacer scroll
-const header = $('header');
-const onScroll = () => header.classList.toggle('scrolled', scrollY > 8);
-onScroll(); addEventListener('scroll', onScroll, { passive: true });
-
-// Aparición progresiva
-const items = $$('.reveal');
-if ('IntersectionObserver' in window) {
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -30px 0px' });
-  items.forEach(el => io.observe(el));
-} else items.forEach(el => el.classList.add('in'));
-
-// Rellenar datos de apoyo
-const na = (el, txt) => { el.textContent = txt; };
-na($('#nequiValue'), SUPPORT.nequi.value || 'Próximamente');
-na($('#cryptoValue'), SUPPORT.crypto.address || 'Próximamente');
-if (SUPPORT.nequi.qr) {
-  const img = new Image(); img.alt = 'Código QR para apoyar por Nequi'; img.src = SUPPORT.nequi.qr;
-  $('#nequiQr').replaceChildren(img);
-}
-const wl = $('#wompiLink');
-if (SUPPORT.wompi.url) wl.href = SUPPORT.wompi.url;
-else { wl.removeAttribute('href'); wl.setAttribute('aria-disabled', 'true'); wl.style.opacity = '.5'; wl.style.pointerEvents = 'none'; }
-$$('[data-copy]').forEach(b => { if (!SUPPORT[b.dataset.copy === 'nequiValue' ? 'nequi' : 'crypto'][b.dataset.copy === 'nequiValue' ? 'value' : 'address']) b.disabled = true; });
-
-// Modales accesibles (Esc, clic fuera, foco atrapado)
-let current = null, lastFocus = null;
-const focusables = m => $$('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])', m).filter(e => e.offsetParent !== null);
-function openModal(id, trigger) {
-  const m = document.getElementById(id); if (!m) return;
-  lastFocus = trigger || document.activeElement; current = m;
-  m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); document.body.classList.add('locked');
-  setTimeout(() => (focusables(m)[0] || m).focus(), 50);
-}
-function closeModal() {
-  if (!current) return;
-  current.classList.remove('open'); current.setAttribute('aria-hidden', 'true'); document.body.classList.remove('locked');
-  current = null; lastFocus && lastFocus.focus();
-}
-document.addEventListener('click', e => {
-  const o = e.target.closest('[data-open]');
-  if (o) { e.preventDefault(); openModal(o.dataset.open, o); return; }
-  if (e.target.closest('[data-close]') || (current && e.target === current)) closeModal();
-});
-document.addEventListener('keydown', e => {
-  if (!current) return;
-  if (e.key === 'Escape') { closeModal(); return; }
-  if (e.key === 'Tab') {
-    const f = focusables(current); if (!f.length) return;
-    const first = f[0], last = f[f.length - 1];
-    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-  }
-});
-
-// Pestañas (clic y flechas)
-const tabs = $$('[role="tab"]');
-function selectTab(t, focus) {
-  tabs.forEach(x => {
-    const on = x === t;
-    x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
-    const p = document.getElementById(x.getAttribute('aria-controls'));
-    p.hidden = !on; p.classList.toggle('show', on);
-  });
-  if (focus) t.focus();
-}
-tabs.forEach((t, i) => {
-  t.addEventListener('click', () => selectTab(t));
-  t.addEventListener('keydown', e => {
-    const k = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-    if (k) { e.preventDefault(); selectTab(tabs[(i + k + tabs.length) % tabs.length], true); }
-    if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0], true); }
-    if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1], true); }
-  });
-});
-
-// Copiar al portapapeles con indicador temporal
-async function copyText(text) {
-  try { await navigator.clipboard.writeText(text); return true; }
-  catch {
-    const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
-    ta.style.cssText = 'position:fixed;opacity:0'; document.body.appendChild(ta); ta.select();
-    let ok = false; try { ok = document.execCommand('copy'); } catch {} ta.remove(); return ok;
-  }
-}
-$$('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
-  const text = document.getElementById(btn.dataset.copy).textContent.trim();
-  const ok = await copyText(text);
-  btn.textContent = ok ? '¡Copiado!' : 'No se pudo copiar';
-  btn.classList.toggle('copied', ok);
-  $('#live').textContent = ok ? 'Copiado al portapapeles' : 'No se pudo copiar';
-  clearTimeout(btn._t);
-  btn._t = setTimeout(() => { btn.textContent = btn.dataset.label; btn.classList.remove('copied'); $('#live').textContent = ''; }, 2000);
-}));
-</script>
-</body>
-</html>
+<span class="sr" id="live" role="status" aria-live="polite"></span>
