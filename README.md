@@ -33,7 +33,7 @@ BioEvo/
 | Módulo | Enfoque | Tecnologías Clave | Estado |
 | :--- | :--- | :--- | :--- |
 | [**Cronos Desktop**](./cronos/) | Síntesis y extracción de literatura científica (PDFs, preprints) mediante LLMs locales | Python, Ollama, LangChain/LlamaIndex | En desarrollo |
-| [**LabStats Formatter**](./labstats/) | Procesamiento automatizado de pruebas estadísticas y exportación directa a tablas LaTeX | Python, pandas, scipy, statsmodels | En desarrollo |
+| [**LabStats Formatter**](./labstats/) | Procesamiento automatizado de pruebas estadísticas y exportación directa a tablas LaTeX | Python, pandas, scipy, statsmodels | Beta (v0.9.0-BETA) |
 
 ---
 
