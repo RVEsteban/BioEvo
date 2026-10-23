@@ -1,0 +1,27 @@
+# BioEvo Core | LabStats Formatter Dependencies
+
+
+
+# Manipulación de datos tabulares y estructuras matriciales
+
+pandas>=2.0.0,<3.0.0
+
+numpy>=1.24.0,<2.0.0
+
+
+
+# Motores bioestadísticos e inferencia (t-test, ANOVA, Kruskal-Wallis)
+
+scipy>=1.10.0,<1.15.0
+
+
+
+# Acceso al portapapeles del sistema operativo
+
+pyperclip>=1.8.2
+
+
+
+# Generación del ejecutable binario (.exe)
+
+pyinstaller>=6.0.0
