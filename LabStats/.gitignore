@@ -1,0 +1,20 @@
+# Byte-compiled / cache de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.venv/
+venv/
+ENV/
+
+# Carpetas de compilación de PyInstaller
+build/
+dist/
+*.spec
+
+# Archivos del sistema operativo y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
