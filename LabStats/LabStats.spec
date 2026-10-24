@@ -4,7 +4,7 @@ from PyInstaller.utils.hooks import collect_data_files
 
 block_cipher = None
 
-# Recolectar assets de CustomTkinter
+# Recolección exhaustiva de assets de CustomTkinter
 ctk_datas = collect_data_files('customtkinter')
 
 a = Analysis(
@@ -16,12 +16,13 @@ a = Analysis(
         'scipy.special.cython_special',
         'scipy.stats._sobol',
         'PIL._tkinter_finder',
-        'matplotlib.backends.backend_tkagg'
+        'matplotlib.backends.backend_tkagg',
+        'openpyxl'
     ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    excludes=['tkinter.test', 'unittest'],
     win_no_prefer_redirects=False,
     win_private_assemblies=False,
     cipher=block_cipher,
@@ -36,7 +37,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='LabStats_Formatter',
+    name='LabStats_Formatter_v1.0.0-rc1',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

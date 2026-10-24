@@ -1,27 +1,28 @@
-# BioEvo Core | LabStats Formatter Dependencies
+# --- Manipulación y Estructuración de Datos ---
+# Lectura, limpieza y manejo de DataFrames para CSV, TSV y tablas delimitadas
+pandas>=2.2.0
 
+# Operaciones matriciales, manejo de vectores y tipos numéricos de alto rendimiento
+numpy>=2.0.0
 
+# --- Computación Científica y Bioestadística ---
+# Pruebas de normalidad (Shapiro-Wilk) y cálculo de estadísticos inferenciales
+scipy>=1.13.0
 
-# Manipulación de datos tabulares y estructuras matriciales
+# --- Interfaz Gráfica y Experiencia de Usuario (UI/UX) ---
+# Componentes modernos con esquinas redondeadas, soporte de tema oscuro y tabs
+customtkinter>=5.2.0
 
-pandas>=2.0.0,<3.0.0
+# Renderizado visual en vivo de la tabla LaTeX y generación de figuras gráficas
+matplotlib>=3.8.0
 
-numpy>=1.24.0,<2.0.0
+# --- Compatibilidad de Entrada y Salida ---
+# Motor para importar directamente archivos de hojas de cálculo de Excel (.xlsx)
+openpyxl>=3.1.0
 
-
-
-# Motores bioestadísticos e inferencia (t-test, ANOVA, Kruskal-Wallis)
-
-scipy>=1.10.0,<1.15.0
-
-
-
-# Acceso al portapapeles del sistema operativo
-
+# Interacción con el portapapeles del sistema para copiar el código LaTeX generado
 pyperclip>=1.8.2
 
-
-
-# Generación del ejecutable binario (.exe)
-
+# --- Empaquetado y Distribución ---
+# Compilador para generar el binario ejecutable único (.exe) independiente
 pyinstaller>=6.0.0
