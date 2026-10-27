@@ -7,18 +7,18 @@
 <meta name="description" content="Software científico local y sin telemetría: Cronos Desktop (literatura científica con LLMs locales) y LabStats Formatter (tablas biostatísticas a LaTeX).">
 <meta name="theme-color" content="#0d1117">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1117'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%2338bdf8' stroke-opacity='.35' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2338bdf8'/%3E%3C/svg%3E">
-<!-- Cambia TU-USUARIO por tu usuario de GitHub. og:image debe ser una URL absoluta (1200x630 px recomendado). -->
+<!-- URL de GitHub Pages asumida (rvesteban.github.io/BioEvo). og:image debe ser absoluta (1200x630 px recomendado). -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BioEvo Core">
 <meta property="og:locale" content="es_LA">
 <meta property="og:title" content="BioEvo Core | Software científico local y privado">
 <meta property="og:description" content="Software científico local y sin telemetría: Cronos Desktop (literatura científica con LLMs locales) y LabStats Formatter (tablas biostatísticas a LaTeX).">
-<meta property="og:url" content="https://TU-USUARIO.github.io/bioevo-core/">
-<meta property="og:image" content="https://TU-USUARIO.github.io/bioevo-core/og-image.png">
+<meta property="og:url" content="https://rvesteban.github.io/BioEvo/">
+<meta property="og:image" content="https://rvesteban.github.io/BioEvo/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BioEvo Core | Software científico local y privado">
 <meta name="twitter:description" content="Software científico local y sin telemetría: Cronos Desktop (literatura científica con LLMs locales) y LabStats Formatter (tablas biostatísticas a LaTeX).">
-<meta name="twitter:image" content="https://TU-USUARIO.github.io/bioevo-core/og-image.png">
+<meta name="twitter:image" content="https://rvesteban.github.io/BioEvo/og-image.png">
 <style>
 :root {
   --bg: #0d1117; --surface: #161b22; --border: #30363d;
@@ -195,6 +195,81 @@ footer { border-image: linear-gradient(90deg, transparent, var(--border), transp
 .legal .lic { margin: .4rem 0; padding: .6rem .8rem; border-left: 2px solid var(--border); background: var(--bg); border-radius: 0 6px 6px 0; }
 .legal .lic p { font-size: .8rem; margin-bottom: .5rem; }
 
+/* Catálogo, release feed, verificación y changelog */
+.toolbar { display: flex; flex-wrap: wrap; gap: .75rem 1rem; align-items: center; margin-top: 1.25rem; }
+.search { position: relative; flex: 1 1 260px; display: flex; align-items: center; color: var(--text-dim); }
+.search svg { position: absolute; left: .8rem; pointer-events: none; }
+.search input { width: 100%; padding: .6rem 2.4rem; background: var(--surface); color: var(--text-main); border: 1px solid var(--border); border-radius: 8px; font: inherit; font-size: .9rem; transition: border-color .25s, box-shadow .25s; }
+.search input::placeholder { color: var(--text-dim); }
+.search input:focus { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow); }
+.search kbd { position: absolute; right: .7rem; font: .7rem var(--mono); border: 1px solid var(--border); border-radius: 4px; padding: 0 .35rem; transition: opacity .2s; }
+.search input:focus ~ kbd { opacity: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: .25rem; padding: .25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+.chips button { border: 0; background: transparent; color: var(--text-dim); font: 600 .78rem var(--font-family); padding: .35rem .7rem; border-radius: 6px; cursor: pointer; transition: background .25s, color .25s; }
+.chips button:hover { color: var(--text-main); }
+.chips button[aria-pressed="true"] { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+.count { font: .75rem var(--mono); color: var(--text-dim); margin-left: auto; }
+.card.is-off { display: none; }
+.card:not(.is-off) { animation: fadeUp .4s var(--ease); }
+.empty { margin-top: 1.5rem; color: var(--text-dim); text-align: center; }
+.linkbtn { background: none; border: 0; color: var(--accent); font: inherit; cursor: pointer; text-decoration: underline; }
+.card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 2rem; align-items: start; }
+@media (max-width: 820px) { .card.featured { grid-template-columns: 1fr; } }
+.status.rc::before { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+.feed { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .75rem 1rem; margin: 1rem 0; padding: .9rem 0; border-block: 1px solid var(--border); }
+.feed dt { font: .65rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
+.feed dd { font: .82rem var(--mono); }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.actions .btn { margin: 0; }
+.card .os-note { margin: 0 0 .9rem; padding: .55rem .8rem; border-left: 2px solid #d29922; background: var(--bg); border-radius: 0 6px 6px 0; font-size: .82rem; }
+.verify { margin-top: 1.25rem; }
+.card .vlabel { font: .68rem var(--mono); letter-spacing: .1em; text-transform: uppercase; margin: 0 0 .5rem; }
+.verify .field { margin-bottom: .5rem; }
+.verify .field code { font-size: .74rem; }
+.verify .field .btn { min-width: 8.5rem; padding: .35rem .7rem; font-size: .8rem; }
+.drawer { margin-top: 1.25rem; border-top: 1px solid var(--border); }
+.drawer-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: .8rem 0; background: none; border: 0; color: var(--text-main); font: 600 .88rem var(--font-family); cursor: pointer; transition: color .25s; }
+.drawer-btn:hover { color: var(--accent); }
+.chev { color: var(--text-dim); transition: transform .35s var(--ease); }
+.drawer.open .chev { transform: rotate(180deg); }
+.drawer-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s var(--ease); }
+.drawer.open .drawer-body { grid-template-rows: 1fr; }
+.drawer-inner { overflow: hidden; min-height: 0; }
+.log { list-style: none; border-left: 1px solid var(--border); margin: .25rem 0 .5rem .35rem; padding-left: 1.1rem; }
+.log > li { position: relative; padding-bottom: 1rem; }
+.log > li::before { content: ""; position: absolute; left: calc(-1.1rem - 4px); top: .5rem; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.log-h { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; font-size: .88rem; }
+.log-h small { font: .7rem var(--mono); color: var(--text-dim); }
+.log-h em { font: .65rem var(--mono); font-style: normal; color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0 .45rem; }
+.card .log p, .log ul, .log h5 { margin: .3rem 0 0; font-size: .84rem; color: var(--text-dim); }
+.log ul { padding-left: 1rem; }
+.preview { position: relative; display: block; width: 100%; padding: 0; background: none; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; cursor: zoom-in; transition: border-color .3s, transform .35s var(--ease); }
+.preview:hover { border-color: var(--accent); transform: translateY(-3px); }
+.zoom { position: absolute; right: .6rem; bottom: .6rem; font: .7rem var(--mono); padding: .15rem .5rem; border-radius: 999px; background: rgba(13,17,23,.85); border: 1px solid var(--border); color: var(--text-main); opacity: 0; transition: opacity .3s; }
+.preview:hover .zoom, .preview:focus-visible .zoom { opacity: 1; }
+.mock { font-size: 10px; background: var(--bg); text-align: left; color: var(--text-main); font-family: var(--font-family); }
+.m-bar { display: flex; align-items: center; gap: .5em; padding: .7em 1em; border-bottom: 1px solid var(--border); background: var(--surface); color: var(--text-dim); }
+.m-bar i { width: .8em; height: .8em; border-radius: 50%; background: var(--border); }
+.m-bar span { margin-left: .6em; }
+.m-tabs { display: flex; gap: .2em; padding: .5em .8em 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+.m-tabs b { font-weight: 600; padding: .55em 1em; color: var(--text-dim); border-bottom: 2px solid transparent; animation: mtab 12s infinite; }
+.m-tabs .t1 { color: var(--accent); border-color: var(--accent); }
+.m-tabs .t2 { animation-delay: 4s; } .m-tabs .t3 { animation-delay: 8s; }
+@keyframes mtab { 0%, 30% { color: var(--accent); border-color: var(--accent); } 36%, 100% { color: var(--text-dim); border-color: transparent; } }
+.m-body { position: relative; height: 19em; }
+.m-pane { position: absolute; inset: 0; padding: 1.2em; opacity: 0; animation: mpane 12s infinite; }
+.m-pane.p1 { opacity: 1; } .m-pane.p2 { animation-delay: 4s; } .m-pane.p3 { animation-delay: 8s; }
+@keyframes mpane { 0% { opacity: 0; transform: translateY(.6em); } 6%, 30% { opacity: 1; transform: none; } 36%, 100% { opacity: 0; } }
+.m-pane pre { margin: 0; font: 1em/1.7 var(--mono); color: var(--text-dim); white-space: pre-wrap; }
+.m-pane pre b { color: var(--accent); font-weight: 400; }
+.m-row { display: flex; justify-content: space-between; align-items: center; gap: 1em; padding: .8em 0; border-bottom: 1px solid var(--border); font: 1em var(--mono); color: var(--text-dim); }
+.m-row em { font-style: normal; color: var(--ok); } .m-row em.no { color: #f0883e; }
+.m-hist { display: flex; align-items: flex-end; gap: .5em; height: 13em; border-bottom: 1px solid var(--border); }
+.m-hist u { flex: 1; height: var(--h); text-decoration: none; border-radius: .3em .3em 0 0; background: linear-gradient(var(--accent), color-mix(in srgb, var(--accent) 25%, transparent)); }
+.modal-content.wide { max-width: 860px; padding: 1.25rem; }
+.wide .mock { font-size: 15px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.wide .note { color: var(--text-dim); font-size: .8rem; margin-top: .75rem; }
+
 /* Reveal */
 .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: calc(var(--i, 0) * 110ms); }
 .js .reveal.in { opacity: 1; transform: none; }
@@ -216,7 +291,7 @@ footer { border-image: linear-gradient(90deg, transparent, var(--border), transp
     <nav>
       <a class="link" href="#herramientas">Herramientas</a>
       <a class="link" href="#confianza">Principios</a>
-      <a class="link" href="https://github.com/TU-USUARIO" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="link" href="https://github.com/RVEsteban/BioEvo" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a class="link" href="mailto:rv.esteban07@gmail.com?subject=BioEvo%20Core">Contacto</a>
       <button type="button" class="btn btn-outline btn-sm" data-open="supportModal" aria-haspopup="dialog">☕ Apoyar</button>
     </nav>
@@ -265,22 +340,96 @@ footer { border-image: linear-gradient(90deg, transparent, var(--border), transp
   <section id="herramientas">
     <p class="eyebrow reveal">02 · Módulos</p>
     <h2 class="reveal" style="--i:1">Módulos</h2>
-    <div class="grid">
-      <article class="card reveal" style="--i:1">
+    <div class="toolbar reveal" style="--i:2">
+      <label class="search">
+        <span class="sr">Buscar módulos</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Buscar módulo, tema o versión…" autocomplete="off">
+        <kbd aria-hidden="true">/</kbd>
+      </label>
+      <div class="chips" role="group" aria-label="Categoría" data-filter="cat">
+        <button type="button" data-v="all" aria-pressed="true">Todas</button>
+        <button type="button" data-v="bioestadistica" aria-pressed="false">Bioestadística</button>
+        <button type="button" data-v="texto-ia" aria-pressed="false">Texto / IA</button>
+      </div>
+      <div class="chips" role="group" aria-label="Estado" data-filter="status">
+        <button type="button" data-v="all" aria-pressed="true">Todos</button>
+        <button type="button" data-v="estable" aria-pressed="false">Estable</button>
+        <button type="button" data-v="rc" aria-pressed="false">Pre-release / RC</button>
+        <button type="button" data-v="wip" aria-pressed="false">En desarrollo</button>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+    </div>
+
+    <div class="grid" id="catalog">
+      <article class="card featured reveal" style="--i:3" id="mod-labstats" data-cat="bioestadistica" data-status="rc" data-search="labstats formatter bioestadística biostatística tablas latex estadística descriptiva windows pre-release rc">
+        <div class="feat-info">
+          <div class="card-top"><h3>LabStats Formatter</h3><span class="status rc">Pre-release · RC</span></div>
+          <p>Automatizador de tablas biostatísticas y exportación nativa a sintaxis LaTeX.</p>
+          <div><span class="tech-badge">LaTeX</span><span class="tech-badge">Python</span><span class="tech-badge">Bioestadística</span></div>
+          <dl class="feed">
+            <div><dt>Versión</dt><dd data-f="version">v1.0.0-rc.1</dd></div>
+            <div><dt>Actualizado</dt><dd data-f="date">—</dd></div>
+            <div><dt>Compatibilidad</dt><dd data-f="compat">Windows 64-bit · Standalone</dd></div>
+            <div><dt>Peso</dt><dd data-f="size">83.45 MB</dd></div>
+            <div><dt>Descargas</dt><dd data-f="downloads">—</dd></div>
+          </dl>
+          <p class="os-note" id="osNote" hidden></p>
+          <div class="actions">
+            <a class="btn" id="dlBtn" href="https://github.com/RVEsteban/BioEvo/releases/download/v1.0.0-rc.1/LabStats_Formatter.exe" rel="noopener noreferrer">⬇ Descargar .exe</a>
+            <a class="btn btn-outline" id="altBtn" href="https://github.com/RVEsteban/BioEvo" target="_blank" rel="noopener noreferrer">Documentación ↗</a>
+          </div>
+          <div class="verify">
+            <p class="vlabel">Verificar integridad · SHA-256</p>
+            <div class="field"><code id="shaValue">Se mostrará al publicar la release</code><button type="button" class="btn btn-outline" data-copy="shaValue" data-label="Copiar hash" disabled>Copiar hash</button></div>
+            <div class="field"><code id="psValue">Get-FileHash .\LabStats_Formatter.exe -Algorithm SHA256</code><button type="button" class="btn btn-outline" data-copy="psValue" data-label="Copiar comando">Copiar comando</button></div>
+          </div>
+          <div class="drawer" data-drawer>
+            <button type="button" class="drawer-btn" aria-expanded="false" aria-controls="log-labstats">Historial de versiones <span class="chev" aria-hidden="true">▾</span></button>
+            <div class="drawer-body" id="log-labstats"><div class="drawer-inner">
+              <ol class="log" id="logLabstats"><li><div class="log-h"><strong>v1.0.0-rc.1</strong><em>pre-release</em></div><ul><li>Primera versión candidata: carga de CSV/TSV, estadística descriptiva y exportación a tablas LaTeX.</li></ul></li></ol>
+            </div></div>
+          </div>
+        </div>
+        <button type="button" class="preview" data-open="previewModal" aria-label="Ampliar vista previa de LabStats Formatter">
+          <div class="mock" aria-hidden="true">
+            <div class="m-bar"><i></i><i></i><i></i><span>BioEvo | LabStats Formatter</span></div>
+            <div class="m-tabs"><b class="t1">Tabla &amp; LaTeX</b><b class="t2">Normalidad</b><b class="t3">Gráficas</b></div>
+            <div class="m-body">
+              <div class="m-pane p1"><pre><b>\begin{table}</b>[htbp]
+  \caption{Resumen descriptivo}
+  \begin{tabular}{lcc}
+    \toprule
+    Variable &amp; Media $\pm$ DE &amp; $n$ \\
+    \midrule
+    Peso (kg) &amp; 76,2 $\pm$ 8,4 &amp; 120 \\
+    \bottomrule
+  \end{tabular}</pre></div>
+              <div class="m-pane p2">
+                <div class="m-row"><span>Peso · Shapiro–Wilk</span><span>W = 0,98 · p = 0,41</span><em>Normal</em></div>
+                <div class="m-row"><span>Edad · Shapiro–Wilk</span><span>W = 0,94 · p = 0,01</span><em class="no">No normal</em></div>
+                <div class="m-row"><span>Glucosa · Shapiro–Wilk</span><span>W = 0,99 · p = 0,72</span><em>Normal</em></div>
+              </div>
+              <div class="m-pane p3"><div class="m-hist"><u style="--h:18%"></u><u style="--h:34%"></u><u style="--h:58%"></u><u style="--h:82%"></u><u style="--h:96%"></u><u style="--h:74%"></u><u style="--h:46%"></u><u style="--h:26%"></u><u style="--h:12%"></u></div></div>
+            </div>
+          </div>
+          <span class="zoom" aria-hidden="true">⤢ Ampliar</span>
+        </button>
+      </article>
+
+      <article class="card reveal" style="--i:4" data-cat="texto-ia" data-status="wip" data-search="cronos desktop literatura científica texto ia llm ollama síntesis en desarrollo">
         <div class="card-top"><h3>Cronos Desktop</h3><span class="status wip">En desarrollo</span></div>
         <p>Extractor y sintetizador de literatura científica potenciado por LLMs locales (Ollama).</p>
-        <div><span class="tech-badge">Python</span><span class="tech-badge">Local LLM</span></div>
+        <div><span class="tech-badge">Python</span><span class="tech-badge">Local LLM</span><span class="tech-badge">Texto / IA</span></div>
         <dl class="meta"><div><dt>Estado</dt><dd>En desarrollo</dd></div><div><dt>Ejecución</dt><dd>100 % local</dd></div><div><dt>Licencia</dt><dd>Propietaria</dd></div></dl>
         <button type="button" class="btn" disabled aria-disabled="true">Descargar (.exe) · Próximamente</button>
-      </article>
-      <article class="card reveal" style="--i:2">
-        <div class="card-top"><h3>LabStats Formatter</h3><span class="status">Disponible</span></div>
-        <p>Automatizador de tablas biostatísticas y exportación nativa a sintaxis LaTeX.</p>
-        <div><span class="tech-badge">LaTeX</span><span class="tech-badge">Python</span></div>
-        <dl class="meta"><div><dt>Estado</dt><dd>Disponible</dd></div><div><dt>Ejecución</dt><dd>100 % local</dd></div><div><dt>Licencia</dt><dd>Propietaria</dd></div></dl>
-        <a href="https://github.com/TU-USUARIO/labstats-formatter/releases" class="btn" target="_blank" rel="noopener noreferrer">Descargar</a>
+        <div class="drawer" data-drawer>
+          <button type="button" class="drawer-btn" aria-expanded="false" aria-controls="log-cronos">Historial de versiones <span class="chev" aria-hidden="true">▾</span></button>
+          <div class="drawer-body" id="log-cronos"><div class="drawer-inner"><p>Aún no hay versiones publicadas. Cronos Desktop está en desarrollo.</p></div></div>
+        </div>
       </article>
     </div>
+    <p class="empty" id="empty" hidden>No hay módulos que coincidan con la búsqueda. <button type="button" class="linkbtn" id="resetFilters">Limpiar filtros</button></p>
   </section>
 
   <aside class="support reveal" id="apoyo" aria-labelledby="supportTitle">
@@ -295,7 +444,7 @@ footer { border-image: linear-gradient(90deg, transparent, var(--border), transp
     <h2>Soporte y contacto directo</h2>
     <p>¿Encontraste un bug, quieres proponer una colaboración o necesitas soporte para tu laboratorio o institución? Escríbeme directamente o abre un issue en GitHub.</p>
     <a class="btn btn-outline" href="mailto:rv.esteban07@gmail.com?subject=BioEvo%20Core">✉ rv.esteban07@gmail.com</a>
-    <a class="btn btn-outline" href="https://github.com/TU-USUARIO/cronos-desktop/issues" target="_blank" rel="noopener noreferrer">Reportar un issue ↗</a>
+    <a class="btn btn-outline" href="https://github.com/RVEsteban/BioEvo/issues" target="_blank" rel="noopener noreferrer">Reportar un issue ↗</a>
   </section>
 </main>
 
@@ -329,6 +478,15 @@ footer { border-image: linear-gradient(90deg, transparent, var(--border), transp
     </div>
     <p style="height:.75rem"></p>
     <button type="button" class="btn" data-close>Cerrar</button>
+  </div>
+</div>
+
+<!-- Modal: vista previa -->
+<div class="modal" id="previewModal" role="dialog" aria-modal="true" aria-label="Vista previa de LabStats Formatter" aria-hidden="true">
+  <div class="modal-content wide">
+    <button type="button" class="x" data-close aria-label="Cerrar">✕</button>
+    <div class="mock-host"></div>
+    <p class="note" id="previewNote">Ilustración animada de la interfaz; las cifras son de ejemplo.</p>
   </div>
 </div>
 
@@ -413,7 +571,7 @@ if (SUPPORT.nequi.qr) {
 const wl = $('#wompiLink');
 if (SUPPORT.wompi.url) wl.href = SUPPORT.wompi.url;
 else { wl.removeAttribute('href'); wl.setAttribute('aria-disabled', 'true'); wl.style.opacity = '.5'; wl.style.pointerEvents = 'none'; }
-$$('[data-copy]').forEach(b => { if (!SUPPORT[b.dataset.copy === 'nequiValue' ? 'nequi' : 'crypto'][b.dataset.copy === 'nequiValue' ? 'value' : 'address']) b.disabled = true; });
+$$('#supportModal [data-copy]').forEach(b => { if (!SUPPORT[b.dataset.copy === 'nequiValue' ? 'nequi' : 'crypto'][b.dataset.copy === 'nequiValue' ? 'value' : 'address']) b.disabled = true; });
 
 // Modales accesibles (Esc, clic fuera, foco atrapado)
 let current = null, lastFocus = null;
@@ -514,6 +672,138 @@ if (glow && !matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedi
   glow.style.opacity = '.7';
   (function loop() { x += (tx - x) * .08; y += (ty - y) * .08; glow.style.transform = `translate(${x}px, ${y}px)`; requestAnimationFrame(loop); })();
 }
+
+/* ===== CATÁLOGO · GITHUB RELEASES ===== */
+const REPO = 'RVEsteban/BioEvo';
+const FALLBACK_URL = `https://github.com/${REPO}/releases/download/v1.0.0-rc.1/LabStats_Formatter.exe`;
+const MODULE_ASSET = /LabStats.*\.exe$/i;
+const PREVIEW = { src: '', alt: 'LabStats Formatter en funcionamiento' }; // ej.: 'assets/demo.webm' o 'assets/demo.webp'
+
+// Búsqueda y filtros en tiempo real
+const cards = $$('#catalog [data-cat]');
+const q = $('#q');
+const filters = { cat: 'all', status: 'all' };
+const norm = t => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+function applyFilters() {
+  const term = norm(q.value.trim());
+  let n = 0;
+  cards.forEach(c => {
+    const ok = (filters.cat === 'all' || c.dataset.cat === filters.cat)
+      && (filters.status === 'all' || c.dataset.status === filters.status)
+      && (!term || norm(c.dataset.search + ' ' + c.textContent).includes(term));
+    c.classList.toggle('is-off', !ok);
+    if (ok) n++;
+  });
+  $('#count').textContent = n === 1 ? '1 módulo' : `${n} módulos`;
+  $('#empty').hidden = n > 0;
+}
+$$('.chips').forEach(g => g.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  filters[g.dataset.filter] = b.dataset.v;
+  $$('button', g).forEach(x => x.setAttribute('aria-pressed', x === b));
+  applyFilters();
+}));
+q.addEventListener('input', applyFilters);
+$('#resetFilters').addEventListener('click', () => {
+  q.value = ''; filters.cat = filters.status = 'all';
+  $$('.chips').forEach(g => $$('button', g).forEach((x, i) => x.setAttribute('aria-pressed', i === 0)));
+  applyFilters();
+});
+addEventListener('keydown', e => {
+  if (e.key === '/' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName) && !current) { e.preventDefault(); q.focus(); }
+});
+
+// Acordeón de historial de versiones
+$$('[data-drawer] .drawer-btn').forEach(b => b.addEventListener('click', () => {
+  const d = b.closest('[data-drawer]');
+  b.setAttribute('aria-expanded', d.classList.toggle('open'));
+}));
+
+// Vista previa: ilustración animada o, si defines PREVIEW.src, tu captura / vídeo real
+$('.mock-host').appendChild($('.preview .mock').cloneNode(true));
+if (PREVIEW.src) {
+  const media = () => {
+    const vid = /\.(mp4|webm)$/i.test(PREVIEW.src);
+    const el = document.createElement(vid ? 'video' : 'img');
+    el.src = PREVIEW.src; el.alt = PREVIEW.alt; el.style.cssText = 'display:block;width:100%';
+    if (vid) Object.assign(el, { autoplay: true, muted: true, loop: true, playsInline: true });
+    return el;
+  };
+  $$('.mock').forEach(m => m.replaceWith(media()));
+  $('#previewNote').hidden = true;
+}
+
+// Detección de sistema operativo
+const ua = navigator.userAgent;
+const touch = navigator.maxTouchPoints > 1;
+const platform = /Android/i.test(ua) ? 'Android'
+  : (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && touch)) ? 'iOS/iPadOS'
+  : /Windows/i.test(ua) ? 'Windows' : /Mac/i.test(ua) ? 'macOS' : /Linux|X11|CrOS/i.test(ua) ? 'Linux' : 'tu sistema';
+const isMobile = platform === 'Android' || platform === 'iOS/iPadOS';
+const dl = $('#dlBtn'), alt = $('#altBtn'), osNote = $('#osNote');
+const rel = { url: FALLBACK_URL, page: `https://github.com/${REPO}/releases` };
+function applyPlatform() {
+  if (platform === 'Windows') { dl.href = rel.url; return; }
+  osNote.hidden = false;
+  osNote.textContent = `Requiere Windows 64-bit. Detectamos ${platform}: ` + (isMobile ? 'guarda el enlace y ábrelo desde tu PC.' : 'este ejecutable no corre en tu sistema.');
+  dl.textContent = 'Ver en GitHub'; dl.href = rel.page; dl.target = '_blank';
+  if (isMobile) {
+    alt.textContent = '✉ Enviarme el enlace'; alt.removeAttribute('target');
+    alt.href = 'mailto:?subject=' + encodeURIComponent('LabStats Formatter (Windows x64)') + '&body=' + encodeURIComponent('Descárgalo desde tu PC con Windows: ' + rel.page);
+  }
+}
+applyPlatform();
+
+// Datos en vivo desde GitHub Releases (incluye pre-releases; /releases/latest no las devuelve)
+const setF = (k, v) => { const el = $(`[data-f="${k}"]`); if (el) el.textContent = v; };
+const fmtDate = iso => new Date(iso).toLocaleDateString('es', { year: 'numeric', month: 'short', day: 'numeric' });
+function mdLite(src) {
+  const wrap = document.createElement('div'); let ul = null;
+  (src || 'Sin notas de versión.').split(/\r?\n/).map(l => l.trim()).filter(Boolean).forEach(l => {
+    const text = l.replace(/^#{1,6}\s*/, '').replace(/^[-*]\s+/, '').replace(/\*\*|__|`/g, '');
+    if (/^[-*]\s+/.test(l)) {
+      ul = ul || wrap.appendChild(document.createElement('ul'));
+      ul.appendChild(Object.assign(document.createElement('li'), { textContent: text }));
+    } else {
+      ul = null;
+      wrap.appendChild(Object.assign(document.createElement(/^#/.test(l) ? 'h5' : 'p'), { textContent: text }));
+    }
+  });
+  return wrap;
+}
+async function loadReleases() {
+  const KEY = 'bioevo:releases';
+  try { const c = JSON.parse(sessionStorage.getItem(KEY) || 'null'); if (c && Date.now() - c.t < 6e5) return c.d; } catch {}
+  const r = await fetch(`https://api.github.com/repos/${REPO}/releases?per_page=10`, { headers: { Accept: 'application/vnd.github+json' } });
+  if (!r.ok) throw new Error('GitHub ' + r.status);
+  const d = (await r.json()).filter(x => !x.draft);
+  try { sessionStorage.setItem(KEY, JSON.stringify({ t: Date.now(), d })); } catch {}
+  return d;
+}
+(async () => {
+  try {
+    const list = (await loadReleases()).filter(r => r.assets.some(a => MODULE_ASSET.test(a.name)));
+    if (!list.length) return;
+    const r0 = list[0], asset = r0.assets.find(a => MODULE_ASSET.test(a.name));
+    const total = list.reduce((n, r) => n + r.assets.filter(a => MODULE_ASSET.test(a.name)).reduce((m, a) => m + a.download_count, 0), 0);
+    setF('version', r0.tag_name); setF('date', fmtDate(r0.published_at));
+    setF('size', (asset.size / 1048576).toFixed(2) + ' MB'); setF('downloads', total.toLocaleString('es'));
+    rel.url = asset.browser_download_url; rel.page = r0.html_url; applyPlatform();
+    const card = $('#mod-labstats'), pill = $('.status', card);
+    pill.textContent = r0.prerelease ? 'Pre-release · RC' : 'Estable'; pill.classList.toggle('rc', r0.prerelease);
+    card.dataset.status = r0.prerelease ? 'rc' : 'estable'; applyFilters();
+    $('#psValue').textContent = 'Get-FileHash .\\' + asset.name + ' -Algorithm SHA256';
+    if (asset.digest) { $('#shaValue').textContent = asset.digest.replace(/^sha256:/, ''); $('[data-copy="shaValue"]').disabled = false; }
+    $('#logLabstats').replaceChildren(...list.map(r => {
+      const li = document.createElement('li'), h = document.createElement('div'); h.className = 'log-h';
+      h.append(Object.assign(document.createElement('strong'), { textContent: r.tag_name }));
+      if (r.prerelease) h.append(Object.assign(document.createElement('em'), { textContent: 'pre-release' }));
+      h.append(Object.assign(document.createElement('small'), { textContent: fmtDate(r.published_at) }));
+      li.append(h, mdLite(r.body)); return li;
+    }));
+  } catch (err) { console.warn('No se pudo consultar GitHub Releases; se muestran los datos por defecto.', err); }
+})();
+applyFilters();
 
 // Posición inicial del indicador de pestañas
 syncInd();
