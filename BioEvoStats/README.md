@@ -1,10 +1,10 @@
-# LabStats Formatter
+# BioEvo Stats Formatter
 
-**LabStats Formatter** es una utilidad local diseñada para transformar conjuntos de datos experimentales, análisis de varianza (ANOVA), pruebas $t$ de Student y métricas bioestadísticas en tablas científicas maquetadas bajo el estándar de calidad tipográfica de **LaTeX (`booktabs`)**.
+**BioEvo Stats Formatter** es una utilidad local diseñada para transformar conjuntos de datos experimentales, análisis de varianza (ANOVA), pruebas $t$ de Student y métricas bioestadísticas en tablas científicas maquetadas bajo el estándar de calidad tipográfica de **LaTeX (`booktabs`)**.
 
 ## 🎯 Problema que Resuelve
 
-El traslado manual de resultados desde hojas de cálculo o entornos estadísticos a tablas compatibles con revistas científicas suele ser propenso a errores tipográficos, pérdida de decimales significativos y formatos no estandarizados. LabStats automatiza la limpieza, el cálculo descriptivo y la generación del código LaTeX listo para ser insertado mediante `\input{tabla.tex}`.
+El traslado manual de resultados desde hojas de cálculo o entornos estadísticos a tablas compatibles con revistas científicas suele ser propenso a errores tipográficos, pérdida de decimales significativos y formatos no estandarizados. BioEvo Stats automatiza la limpieza, el cálculo descriptivo y la generación del código LaTeX listo para ser insertado mediante `\input{tabla.tex}`.
 
 ## ⚙️ Capacidades
 
@@ -32,13 +32,13 @@ Compuesto_B,30,14.10,1.15,0.1180
 
 ```
 
-### 2. Salida Generada por LabStats Formatter
+### 2. Salida Generada por BioEvo Stats Formatter
 
 ```
 \begin{table}[htbp]
   \centering
   \caption{Parámetros biométricos observados según grupo de tratamiento.}
-  \label{tab:labstats_biometric}
+  \label{tab:BioEvo Stats_biometric}
   \begin{tabular}{lcccc}
     \toprule
     Tratamiento & $n$ & Media & $\pm$ DE & $p$-valor \\
@@ -61,7 +61,7 @@ Para entornos de prueba locales:
 git clone https://github.com/RVEsteban/BioEvo.git
 
 # Ingresar al directorio del módulo
-cd BioEvo/labstats
+cd BioEvo/BioEvo Stats
 
 # Crear un entorno virtual
 python -m venv venv
