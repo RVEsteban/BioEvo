@@ -20,6 +20,46 @@
 <meta name="twitter:title" content="BioEvo Core | Software científico local y privado">
 <meta name="twitter:description" content="Software científico local y sin telemetría: Cronos Desktop (literatura científica con LLMs locales) y BioEvo Stats (tablas bioestadísticas a LaTeX).">
 <meta name="twitter:image" content="https://rvesteban.github.io/BioEvo/og-image.png">
+
+<!-- Datos Estructurados Schema.org para Google (SoftwareApplication & Person) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://rvesteban.github.io/BioEvo/#bioevo-stats",
+      "name": "BioEvo Stats",
+      "applicationCategory": "EducationalApplication",
+      "applicationSubCategory": "Biostatistics and Ecological Analysis",
+      "operatingSystem": "Windows 10 (64-bit), Windows 11 (64-bit)",
+      "softwareVersion": "1.0.0",
+      "fileSize": "83.6MB",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Software científico de escritorio para procesamiento bioestadístico, diagnóstico de normalidad con Shapiro-Wilk, índices de biodiversidad y exportación directa de tablas a sintaxis LaTeX booktabs.",
+      "downloadUrl": "https://github.com/RVEsteban/BioEvo/releases/download/v1.0.0/BioEvo_Stats.exe",
+      "author": {
+        "@type": "Person",
+        "name": "Luis Esteban Rosero Villota",
+        "url": "https://github.com/RVEsteban"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rvesteban.github.io/BioEvo/#website",
+      "url": "https://rvesteban.github.io/BioEvo/",
+      "name": "BioEvo Core",
+      "description": "Suite de software científico local-first y sin telemetría.",
+      "inLanguage": "es"
+    }
+  ]
+}
+</script>
+
 <style>
 :root {
   --bg: #0d1117; --surface: #161b22; --border: #30363d;
@@ -248,6 +288,17 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-event
 .log-h em { font: .65rem var(--mono); font-style: normal; color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0 .45rem; }
 .card .log p, .log ul, .log h5 { margin: .3rem 0 0; font-size: .84rem; color: var(--text-dim); }
 .log ul { padding-left: 1rem; }
+
+/* Subsección de métricas de localización */
+.i18n-progress { margin-top: .6rem; padding: .65rem .8rem; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; }
+.i18n-progress h6 { font-size: .78rem; font-family: var(--mono); color: var(--accent); margin-bottom: .35rem; text-transform: uppercase; letter-spacing: .06em; }
+.i18n-list { list-style: none !important; padding-left: 0 !important; display: grid; grid-template-columns: 1fr; gap: .3rem; }
+.i18n-item { display: flex; justify-content: space-between; align-items: center; font-size: .8rem; font-family: var(--mono); color: var(--text-dim); }
+.i18n-item strong { color: var(--text-main); font-weight: 500; }
+.i18n-tag { padding: 1px 6px; border-radius: 4px; font-size: .72rem; }
+.tag-native { background: rgba(63,185,80,.18); color: var(--ok); border: 1px solid var(--ok); }
+.tag-progress { background: rgba(56,189,248,.15); color: var(--accent); border: 1px solid var(--accent); }
+
 .preview { position: relative; display: block; width: 100%; padding: 0; background: none; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; cursor: zoom-in; transition: border-color .3s, transform .35s var(--ease); }
 .preview:hover { border-color: var(--accent); transform: translateY(-3px); }
 .zoom { position: absolute; right: .6rem; bottom: .6rem; font: .7rem var(--mono); padding: .15rem .5rem; border-radius: 999px; background: rgba(13,17,23,.85); border: 1px solid var(--border); color: var(--text-main); opacity: 0; transition: opacity .3s; }
@@ -389,7 +440,7 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-event
             <div class="field"><code id="psValue">Get-FileHash .\BioEvo_Stats.exe -Algorithm SHA256</code><button type="button" class="btn btn-outline" data-copy="psValue" data-label="Copiar comando">Copiar comando</button></div>
           </div>
           <div class="drawer" data-drawer>
-            <button type="button" class="drawer-btn" aria-expanded="false" aria-controls="log-bioevo-stats">Historial de versiones <span class="chev" aria-hidden="true">▾</span></button>
+            <button type="button" class="drawer-btn" aria-expanded="false" aria-controls="log-bioevo-stats">Historial de versiones y localización <span class="chev" aria-hidden="true">▾</span></button>
             <div class="drawer-body" id="log-bioevo-stats"><div class="drawer-inner">
               <ol class="log" id="logBioEvoStats">
                 <li>
@@ -398,8 +449,26 @@ body::after { content: ""; position: fixed; inset: 0; z-index: 60; pointer-event
                     <li>Lanzamiento oficial: Maquetación editorial en estándares APA 7 e IEEE.</li>
                     <li>Módulo de ecología: Diversidad Alfa (Shannon H', Simpson D/1-D, Pielou J', Margalef) y Disimilitud Beta (Bray-Curtis, Jaccard, Sørensen-Dice).</li>
                     <li>Diagnóstico distribucional automático vía Shapiro-Wilk y suite de inferencia (t-Student y Chi-cuadrado).</li>
-                    <li>Soporte multilingüe en 6 idiomas y temas nativos Dark/Light.</li>
+                    <li>Compilación standalone x86-64 con ejecución 100% desconectada (air-gapped).</li>
                   </ul>
+                  
+                  <div class="i18n-progress">
+                    <h6>Estado de Internacionalización y Traducción (i18n)</h6>
+                    <ul class="i18n-list">
+                      <li class="i18n-item">
+                        <span><strong>Español (ES):</strong> Interfaz, consola y reportes</span>
+                        <span class="i18n-tag tag-native">100% · Nativo</span>
+                      </li>
+                      <li class="i18n-item">
+                        <span><strong>Inglés (EN):</strong> Controles y navegación principal</span>
+                        <span class="i18n-tag tag-progress">75% · Parche v1.0.1</span>
+                      </li>
+                      <li class="i18n-item">
+                        <span><strong>Salida LaTeX:</strong> Leyendas y notas tipográficas</span>
+                        <span class="i18n-tag tag-progress">ES (Migración EN v1.0.1)</span>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ol>
             </div></div>
@@ -881,13 +950,6 @@ async function loadReleases() {
       $('#shaValue').textContent = asset.digest.replace(/^sha256:/i, '').toUpperCase(); 
       $('[data-copy="shaValue"]').disabled = false; 
     }
-    $('#logBioEvoStats').replaceChildren(...list.map(r => {
-      const li = document.createElement('li'), h = document.createElement('div'); h.className = 'log-h';
-      h.append(Object.assign(document.createElement('strong'), { textContent: r.tag_name }));
-      if (r.prerelease) h.append(Object.assign(document.createElement('em'), { textContent: 'pre-release' }));
-      h.append(Object.assign(document.createElement('small'), { textContent: fmtDate(r.published_at) }));
-      li.append(h, mdLite(r.body)); return li;
-    }));
   } catch (err) { console.warn('No se pudo consultar GitHub Releases; se muestran los datos por defecto.', err); }
 })();
 applyFilters();
